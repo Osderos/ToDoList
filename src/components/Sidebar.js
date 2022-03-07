@@ -1,22 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { SidebarWrapper} from '../layout/Layout'
-import Project from './Project'
+import { ProjectButton } from "../layout/Button/Button.styles";
+import { SidebarWrapper } from "../layout/Layout";
+import Project from "./Project";
 
-function Sidebar() {
+function Sidebar(props) {
+
+const projectsList = props.projects.map(project => (
+  <Project name={project.name} key={project.id} id={project.id}/>
+))
+
   return (
     <SidebarWrapper>
       <ListItem>
-        <StyledLink to="/"><i className="fa-solid fa-inbox"></i>All Todos</StyledLink>
+        <StyledLink to="/">
+          <i className="fa-solid fa-inbox"></i>All Todos
+        </StyledLink>
       </ListItem>
       <ListItem>
-        <StyledLink to="/today"><i className="fa-solid fa-calendar-days"></i>Today Todos</StyledLink>
+        <StyledLink to="/today">
+          <i className="fa-solid fa-calendar-days"></i>Today Todos
+        </StyledLink>
       </ListItem>
       <ListItem>
-        <StyledLink to="/week"><i className="fa-solid fa-calendar-week"></i>Week Todos</StyledLink>
+        <StyledLink to="/week">
+          <i className="fa-solid fa-calendar-week"></i>Week Todos
+        </StyledLink>
       </ListItem>
-      <Project/>
+      <ProjectButton onClick={props.handleDisplayFormProject}>
+        New Project <i className="fa-solid fa-plus"></i>
+      </ProjectButton>
+      {projectsList}
     </SidebarWrapper>
   );
 }
@@ -30,11 +45,8 @@ const StyledLink = styled(Link)`
   color: palevioletred;
   display: flex;
   gap: 5px;
-
 `;
 
 const ListItem = styled.li`
   list-style-type: none;
 `;
-
-

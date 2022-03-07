@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FormWrapper } from "./Form/Form.styles";
 
 const Title = styled.h1`
   @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
@@ -36,19 +37,12 @@ const SidebarWrapper = styled(ContentWrapper)`
   height: 100vh;
 `;
 
-const FormWrapper = styled.form`
-  display: flex;
-  flex-direction: column;
-  background-color: papayawhip;
-  padding: 15px;
-  position: fixed;
-  z-index: 1;
-  margin-top: 250px;
-  margin-left: 50%;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  gap: 5px;
-`;
 
-export { Title, TodoTitle, Logo, ContentWrapper, SidebarWrapper, FormWrapper };
+
+const EditWrapper = styled(FormWrapper)`
+position: absolute;
+margin-top: 0px;
+margin-left:0px;
+`
+
+export { Title, TodoTitle, Logo, ContentWrapper, SidebarWrapper, EditWrapper};

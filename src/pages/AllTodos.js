@@ -9,7 +9,18 @@ function AllTodos(props) {
 
   const removeTodo = (param) =>
     setTodoList(todoList.filter((todo) => todo.identifier !== param));
-    
+
+  const editTodo = (id, newTodo) => {
+    const editedTodos = todoList.map((todo) => {
+      if (todo.identifier === id) {
+        return newTodo ;
+      }
+      return todo;
+    });
+    setTodoList(editedTodos);
+    console.log("TODOLIST",todoList);
+  };
+
   const displayTodoList = todoList.map((todo) => (
     <Todo
       key={todo.identifier}
@@ -19,6 +30,7 @@ function AllTodos(props) {
       dueDate={todo.dueDate}
       isChecked={todo.isChecked}
       removeTodo={removeTodo}
+      editTodo={editTodo}
     />
   ));
 

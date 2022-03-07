@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
-import { FormWrapper } from "../layout/Layout";
+import { FormWrapper, Input, Label } from "../layout/Form/Form.styles";
 import { PriorityButton } from "../layout/Button/Button";
 import styled from "styled-components";
 
@@ -76,7 +76,7 @@ function Form(props) {
           value={todo.priority}
           onClick={handleInputButtonChanges}
           name="priority"
-          type='button'
+          type="button"
         >
           Normal
         </PriorityButton>
@@ -87,7 +87,7 @@ function Form(props) {
           value={todo.priority}
           onClick={handleInputButtonChanges}
           name="priority"
-          type='button'
+          type="button"
         >
           Low
         </PriorityButton>
@@ -98,7 +98,7 @@ function Form(props) {
           value={todo.priority}
           onClick={handleInputButtonChanges}
           name="priority"
-          type='button'
+          type="button"
         >
           None
         </PriorityButton>
@@ -116,7 +116,7 @@ function Form(props) {
           priorityBgColor="#b7b7a4"
           priorityColor="black"
           priorityHoverBgColor="#6b705c"
-          type='button'
+          type="button"
           onClick={props.handleDisplay}
         >
           Cancel
@@ -131,17 +131,4 @@ export default Form;
 const ButtonsGroup = styled.div`
   display: flex;
   gap: 5px;
-`;
-
-const Input = styled.input`
-  padding: 0.5em;
-  margin: 0.5em;
-  color: "palevioletred";
-  background: #cfbaf0;
-  border: none;
-  border-radius: 3px;
-`;
-
-const Label = styled.label`
-  color: "palevioletred";
 `;
